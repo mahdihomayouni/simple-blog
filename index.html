@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./main.js" defer></script>
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+</head>
+<style>
+    body {
+                justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: auto;
+    }
+
+    .loading {
+        position: absolute;
+        inset: 0;
+        background-color: whitesmoke;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .5s;
+
+    }
+
+    .loading::after {
+        content: "";
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border-bottom: 2px solid black;
+        border-right: 2px solid black;
+        z-index: 10;
+        position: relative;
+        animation: loading infinite .5s;
+    }
+
+    @keyframes loading {
+        0% {
+            rotate: 0;
+        }
+
+        25% {
+            rotate: 90deg;
+        }
+
+        50% {
+            rotate: 180deg;
+        }
+
+        75% {
+            rotate: 280deg;
+        }
+
+        100% {
+            rotate: 360deg;
+        }
+    }
+    .dismis{
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+    #app{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin-top: 3rem;
+    }
+    small{
+        position: absolute;
+        top: -15px;
+        left: -12px;
+        width: inherit !important;
+    }
+</style>
+
+<body>
+    <div class="loading">
+    </div>
+    <h1 class="text-3xl text-center m-5">JsonPlaceholder Blog</h1>
+    <hr>
+    <div id="app"></div>
+
+</body>
+
+</html>
